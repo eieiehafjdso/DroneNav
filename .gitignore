@@ -1,0 +1,6 @@
+#PX4源码
+PX4-Autopilot/
+#地面站软件
+qgroundcontrol/
+#Qt 框架官方提供的在线安装器
+qt-online-installer-linux-x64-online.run
