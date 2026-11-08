@@ -1,5 +1,6 @@
 # **Ubuntu 2204+Ros2+PX4+QGC无人机仿真及真机部署自动导航项目**
 ## 环境准备
+本项目默认已经读者已安装好了ROS2 Humble版和Ubuntu 2204
 ### 准备工作目录
 ```
 mkdir -p ~/Desktop/DroneNav
@@ -51,3 +52,22 @@ mkdir build && cd build
 ~/Qt/6.11.1/gcc_64/bin/qt-cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Release
 ninja -j4
 ```
+### Micro-XRCE-DDS-Agent拉取及编译
+```
+cd ~/Desktop/DroneNav
+
+# 拉取的 v2.4.3版本
+git clone --recursive -b v2.4.3 https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+
+# 编译
+cd Micro-XRCE-DDS-Agent
+mkdir -p build && cd build
+
+source /opt/ros/humble/setup.bash
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j$(nproc)
+
+sudo make install
+sudo ldconfig /usr/local/lib/
+```
+说明：Micro-XRCE-DDS-Agent主要用于实现搭建ROS2和PX4之间信息桥梁的作用,下载的是v2.4.3版本的
