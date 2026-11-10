@@ -9,3 +9,6 @@
 
 # Qt 在线安装器
 /qt-online-installer-linux-x64-online.run
+
+#vscode配置文件
+.vscode/
